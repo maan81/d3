@@ -9,6 +9,8 @@
 
     <script type="text/javascript">
 
+        var dataArray = [20, 40, 50];
+
         var canvas = d3
                         .select('body')
                         .append('svg')
@@ -16,29 +18,20 @@
                         .attr('height',500)
         ;
 
-        var circle = canvas
-                        .append('circle')
-                        .attr('cx',200)
-                        .attr('cy',200)
-                        .attr('r',50)
-                        .attr('fill','red')
+        var bars = canvas
+                        .selectAll('rect')
+                        .data(dataArray)
+                        .enter()
+                            .append('rect')
+                            .attr('width',function(d){
+                                return d*10;
+                            })
+                            .attr('height',50)
+                            .attr('y',function(d,i){
+                                return i*60;
+                            })
         ;
 
-        var rect = canvas
-                        .append('rect')
-                        .attr('width',100)
-                        .attr('height',50)
-        ;
-
-        var line = canvas
-                        .append('line')
-                        .attr('x1',0)
-                        .attr('yi',100)
-                        .attr('x2',400)
-                        .attr('y2',400)
-                        .attr('stroke','green')
-                        .attr('stroke-width',10)
-        ;
 
     </script>
 
