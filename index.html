@@ -9,7 +9,7 @@
 
     <script type="text/javascript">
 
-        var data = [10,20];
+        var data = [10];
 
         var canvas = d3
                 .select('body')
@@ -23,18 +23,21 @@
                         .attr('cx',50)
                         .attr('cy',100)
                         .attr('r',25)
-                        .attr('fill','green')
+        ;
+
+        var circle_update2 = canvas
+                        .append('circle')
+                        .attr('cx',50)
+                        .attr('cy',150)
+                        .attr('r',25)
         ;
 
         var circle_enter = canvas
                         .selectAll('circle')
                         .data(data)
-                        .enter()
-                            .append('circle')
-                            .attr('cx',50)
-                            .attr('cy',50)
-                            .attr('r',25)
-                            .attr('fill','red')
+                        .attr('fill','green')
+                        .exit()
+                            .attr('fill','blue')
         ;
 
 
