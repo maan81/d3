@@ -18,13 +18,27 @@
                 .attr('height',400)
         ;
 
+        var circle_transition = canvas
                         .append('circle')
                         .attr('cx',50)
+                        .attr('cy',50)
                         .attr('r',25)
         ;
 
+        circle_transition
+            .attr('fill','green')
 
+            .transition()
+            .duration(2000)
+            .attr('cx',200)
+            .attr('fill','red')
 
+            .transition()
+            .delay(2000)
+            .duration(2000)
+            .attr('cx',50)
+            .attr('fill','green')
+        ;
 
     </script>
 
