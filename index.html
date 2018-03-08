@@ -9,9 +9,11 @@
 
     <script type="text/javascript">
 
-        // d3.csv -- for csv
+        // for csv
+        d3.csv('mydata.csv',function(data){
 
-        d3.json('mydata.json',function(data){
+        // for json
+        // d3.json('mydata.json',function(data){
 
             var canvas = d3
                             .select('body')
