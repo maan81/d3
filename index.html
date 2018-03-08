@@ -18,27 +18,12 @@
                 .attr('height',400)
         ;
 
-        var circle_update = canvas
                         .append('circle')
                         .attr('cx',50)
-                        .attr('cy',100)
                         .attr('r',25)
         ;
 
-        var circle_update2 = canvas
-                        .append('circle')
-                        .attr('cx',50)
-                        .attr('cy',150)
-                        .attr('r',25)
-        ;
 
-        var circle_enter = canvas
-                        .selectAll('circle')
-                        .data(data)
-                        .attr('fill','green')
-                        .exit()
-                            .attr('fill','blue')
-        ;
 
 
     </script>
