@@ -22,8 +22,8 @@
             var canvas = d3
                             .select('body')
                             .append('svg')
-                            .attr('width',400)
-                            .attr('height',300)
+                            .attr('width',500)
+                            .attr('height',400)
             ;
 
             var bars = canvas
@@ -35,7 +35,7 @@
 
             bars
                 .append('rect')
-                .attr('x',function(d){ return d.x0; })
+                .attr('x',function(d){ return d.x0 * 5; })
                 .attr('y',0)
                 .attr('width',function(d){ return (d.x1-d.x0) * 5;})
                 .attr('height',function(d){ return d.length * 20; })
