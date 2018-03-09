@@ -19,6 +19,33 @@
                         .attr('height',300)
         ;
 
+        var group = canvas
+                        .append('g')
+                        .attr('transform','translate(200,150)')
+        ;
+
+        var arc = d3
+                    .arc()
+                    .innerRadius(100)
+                    .outerRadius(150)
+        ;
+
+        var pie = d3
+                    .pie()
+                    .value(function(d){
+                        return d;
+                    })
+        ;
+
+        var arcs = group
+                        .selectAll('.arc')
+                        .data(pie(data))
+                        .enter()
+                            .append('g')
+                            .attr('class','arc')
+                            .append('path')
+                            .attr('d',arc)
+
     </script>
 
 </body>
