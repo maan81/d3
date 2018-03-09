@@ -19,6 +19,24 @@
                         .attr('height',height)
         ;
 
+        canvas
+            .append('g')
+               .attr('transform','translate(50,50)')
+        ;
+
+        var pack = d3
+                    .pack()
+                    .size([width. height-50])
+                    .padding(10)
+        ;
+        // console.log(pack());
+
+        d3.json('mydata.json',function(data){
+            // console.log(data.nodes)
+            var nodes = pack.nodes(data);
+            // console.log(nodes);
+        });
+
     </script>
 
 </body>
