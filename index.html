@@ -9,6 +9,11 @@
 
     <script type="text/javascript">
 
+        d3.csv('ages.csv',function(data){
+
+            var map = data.map(function(i){ return parseInt(i.age); })
+
+        });
 
     </script>
 
