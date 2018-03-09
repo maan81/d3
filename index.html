@@ -12,6 +12,11 @@
         var data = [10,50,80];
         var r = 100;
 
+        var color = d3
+                        .scaleOrdinal()
+                        .range(['red','blue','green'])
+        ;
+
         var canvas = d3
                         .select('body')
                         .append('svg')
@@ -45,6 +50,10 @@
                             .attr('class','arc')
                             .append('path')
                             .attr('d',arc)
+                            .attr('fill',function(d){
+                                return color(d.data);
+                            })
+        ;
 
     </script>
 
