@@ -31,7 +31,7 @@
 
         var arc = d3
                     .arc()
-                    .innerRadius(100)
+                    .innerRadius(50)
                     .outerRadius(150)
         ;
 
@@ -53,6 +53,26 @@
                             .attr('fill',function(d){
                                 return color(d.data);
                             })
+        ;
+
+        arcs
+            .append('text')
+
+            .attr('x',20)
+            .attr('dy',80)
+            // .attr('transform',function(d){
+            //     // return 'translate(50,50)';
+            //     console.log(arc.centroid(d))
+            //     return 'translate('+arc.centroid(d)+')';
+            // })
+            .attr('stroke','#000')
+            .attr('fill','#fff')
+            .attr('text-anchor','middle')
+            .attr('font-size','10px')
+            .text(function(d){
+                console.log(d.data);
+                return d.data;
+            })
         ;
 
     </script>
