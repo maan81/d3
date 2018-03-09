@@ -16,34 +16,9 @@
                         .attr('height',300)
         ;
 
-        var data = [
-            [92,38],
-            [59,26],
-            [38,06],
-            [59,11],
-            [44,80],
-        ];
-
         var group = canvas
                         .append('g')
                         .attr('transform','translate(100,100)')
-        ;
-
-        var line = d3
-                    .line()
-                    .x(function(data){return data[0];})
-                    .y(function(data){return data[1];})
-        ;
-
-        group
-            .selectAll()
-            .data([data])
-            .enter()
-                .append('path')
-                .attr('d',line)
-                .attr('fill','none')
-                .attr('stroke','#000')
-                .attr('stroke-width','1')
         ;
 
     </script>
