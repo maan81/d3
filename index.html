@@ -67,7 +67,8 @@
                 })
                 .attr('width',function(d){ return x(d.x1-d.x0);})
                 .attr('height',function(d){
-                    return y(height);
+                    return y(d.length);
+
                 })
                 .attr('fill','steelblue')
             ;
