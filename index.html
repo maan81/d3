@@ -23,6 +23,19 @@
                             (map)
             ;
 
+            var y = d3
+                        .scaleLinear()
+                        .domain([
+                            0,
+                            d3.max(
+                                histogram.map(function(i){
+                                    return i.length
+                                })
+                            )
+                        ])
+                        .range([0,height])
+            ;
+
             var canvas = d3
                             .select('body')
                             .append('svg')
@@ -42,7 +55,7 @@
                 .attr('x',function(d){ return d.x0 * 5; })
                 .attr('y',0)
                 .attr('width',function(d){ return (d.x1-d.x0) * 5;})
-                .attr('height',function(d){ return d.length * 20; })
+                .attr('height',function(d){ return y(d.length); })
                 .attr('fill','steelblue')
             ;
 
