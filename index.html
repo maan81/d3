@@ -62,9 +62,13 @@
             bars
                 .append('rect')
                 .attr('x',function(d){ return x(d.x0); })
-                .attr('y',0)
+                .attr('y',function(d){
+                    return height-y(d.length);
+                })
                 .attr('width',function(d){ return x(d.x1-d.x0);})
-                .attr('height',function(d){ return y(d.length); })
+                .attr('height',function(d){
+                    return y(height);
+                })
                 .attr('fill','steelblue')
             ;
 
