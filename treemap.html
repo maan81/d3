@@ -19,17 +19,7 @@
                         .attr('height',height)
         ;
 
-        d3.json('mydata.json',function(data){
-
-            var treemap = d3
-                            .treemap()
-                            .size([width,height])
-            ;
-
-            var nodes = d3.hierarchy(data);
-
-            nodes = treemap(nodes);
-
+        d3.csv('mydata.json',function(data){
         });
 
     </script>
