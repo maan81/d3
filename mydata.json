@@ -33,8 +33,10 @@
                     "value":25
                 }
             ]
+        },
+        {
+            "name" : "Mr. X",
+            "value": 75
         }
-    ],
-    "name" : "Mr. X",
-    "value": 75
+    ]
 }
