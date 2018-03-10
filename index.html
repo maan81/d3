@@ -45,6 +45,11 @@
                         .range([0,width])
             ;
 
+            var xAxis = d3
+                            .axisBottom()
+                            .scale(x)
+            ;
+
             var canvas = d3
                             .select('body')
                             .append('svg')
@@ -73,6 +78,11 @@
                 .attr('fill','steelblue')
             ;
 
+            var group = canvas
+                .append('g')
+                .attr('transform','translate(0,'+height+')')
+                .call(xAxis)
+            ;
         });
 
     </script>
