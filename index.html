@@ -85,6 +85,21 @@
                 .attr('transform','translate(0,'+height+')')
                 .call(xAxis)
             ;
+
+            bars
+                .append('text')
+                .attr('x',function(d){
+                    return x(d.x0) + (d.x1 - d.x0) + 15;
+                })
+                .attr('y',function(d){
+                    return height - (y(d.length)-padding);
+                })
+                .attr('fill','#0f0')
+                .attr('text-anchor','middle')
+                .text(function(d){
+                    return d.length;
+                })
+            ;
         });
 
     </script>
