@@ -36,6 +36,15 @@
                         .range([0,height])
             ;
 
+            var x = d3
+                        .scaleLinear()
+                        .domain([
+                            0,
+                            d3.max(map)
+                        ])
+                        .range([0,width])
+            ;
+
             var canvas = d3
                             .select('body')
                             .append('svg')
@@ -52,9 +61,9 @@
 
             bars
                 .append('rect')
-                .attr('x',function(d){ return d.x0 * 5; })
+                .attr('x',function(d){ return x(d.x0); })
                 .attr('y',0)
-                .attr('width',function(d){ return (d.x1-d.x0) * 5;})
+                .attr('width',function(d){ return x(d.x1-d.x0);})
                 .attr('height',function(d){ return y(d.length); })
                 .attr('fill','steelblue')
             ;
