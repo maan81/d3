@@ -2,31 +2,7 @@
     "name":"Max",
     "children":[
         {
-            "name":"Sylvia",
-            "children":[
-                {
-                    "name": "Craig"
-                },
-                {
-                    "name": "Robin"
-                },
-                {
-                    "name": "Anna"
-                }
-            ]
-        },
-        {
-            "name":"David",
-            "children":[
-                {
-                    "name":"Jeff",
-                    "size":35541
-                },
-                {
-                    "name":"Buffy",
-                    "size":5731
-                }
-            ]
+            "name":"Sylvia"
         }
     ]
 }
