@@ -10,7 +10,9 @@
     <script type="text/javascript">
 
         var width = 500,
-            height = 400;
+            height = 400,
+            color = d3.scaleOrdinal(d3.schemeCategory10);
+        ;
 
         var canvas = d3
                         .select('body')
@@ -26,9 +28,51 @@
                             .size([width,height])
             ;
 
-            var nodes = d3.hierarchy(data);
+            var nodes = treemap(d3.hierarchy(data));
 
-            nodes = treemap(nodes);
+
+            // console.log(nodes.descendants())
+            var cells = canvas
+                            .selectAll('.cell')
+                            .data(nodes.descendants())
+                            .enter()
+                                .append('g')
+                                .attr('class','cell')
+                                .attr('name',function(d){
+                                    return d.data.name
+                                })
+            ;
+            console.log(cells)
+
+            cells
+                .append('rect')
+                .attr('x',function(d){
+                    // console.log(d.x0)
+                    return d.x0;
+                })
+                .attr('y',function(d){
+                    console.log(d.y0)
+                    return d.y0;
+                })
+                .attr('height',function(d){
+                    return d.y1-d.y0;
+                })
+                .attr('width',function(d){
+                    return d.x1-d.x0;
+                })
+                .attr('fill',function(d){
+                    // console.log(d)
+                    // console.log(d.parent ? d.parent.data.name : null)
+                    return d.children ? null : color(d.parent.name) ;
+                })
+            ;
+
+            cells
+                .append('text')
+                .attr('x',function(d){ return d.x0+(d.x1-d.x0)/2; })
+                .attr('y',function(d){ return d.y0+(d.y1-d.y0)/2; })
+                .attr('text-anchor','middle')
+                .text(function(d){ return d.children ? null : d.data.name;})
 
         });
 
