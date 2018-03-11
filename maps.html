@@ -9,7 +9,7 @@
 
     <script type="text/javascript">
 
-        var width = 760,
+        var width = 900,
             height = 700
         ;
 
@@ -29,7 +29,11 @@
                             .append('g')
             ;
 
-            var projection = d3.geoMercator();
+            var projection = d3
+                                .geoMercator()
+                                .scale(1000)
+                                .translate([width/2,height*2.5])
+            ;
             var path = d3
                         .geoPath()
                         .projection(projection)
