@@ -22,6 +22,13 @@
 
         // https://raw.githubusercontent.com/johan/world.geo.json/master/countries/SWE.geo.json
         d3.json('SWE.geo.json',function(data){
+            var group = canvas
+                            .selectAll('g')
+                            .data(data.features)
+                            ,enter()
+                            .append('g')
+            ;
+
         });
 
     </script>
