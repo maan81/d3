@@ -30,6 +30,14 @@
             });
 
             console.log(nodes);
+
+            var node = canvas
+                            .selectAll('.node')
+                            .data(nodes)
+                            .enter()
+                                .append('g')
+                                .attr('class','node')
+            ;
         });
     </script>
 
