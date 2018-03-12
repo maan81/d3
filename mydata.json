@@ -2,7 +2,37 @@
     "name":"Max",
     "children":[
         {
-            "name":"Sylvia"
+            "name":"Sylvia",
+            "children":[
+                {
+                    "name":"SSS"
+                },
+                {
+                    "name":"SSSS"
+                }
+            ]
+        },
+        {
+            "name":"BB",
+            "children":[
+                {
+                    "name":"BBB"
+                },
+                {
+                    "name":"BBBB"
+                }
+            ]
+        },
+        {
+            "name":"CC",
+            "children":[
+                {
+                    "name":"CCCC"
+                },
+                {
+                    "name":"CCCCC"
+                }
+            ]
         }
     ]
 }
