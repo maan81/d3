@@ -24,6 +24,12 @@
         ;
 
         d3.json('mydata.json',function(data){
+
+            var nodes = d3.hierarchy(data, function(d) {
+                return d.children;
+            });
+
+            console.log(nodes);
         });
     </script>
 
