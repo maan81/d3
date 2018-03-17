@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>D3 Tutorial</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        d3.json('mydata.json',function(data){
+
+            var margin = {top: 0, right: 90, bottom: 30, left: 50},
+                width = 660 - margin.left - margin.right,
+                height = 500 - margin.top - margin.bottom
+            ;
+
+            var treemap = d3
+                            .tree()
+                            .size([height, width])
+            ;
+
+            var svg = d3
+                        .select("body")
+                        .append("svg")
+                        .attr("width", width + margin.left + margin.right)
+                        .attr("height", height + margin.top + margin.bottom)
+            ;
+
+            var g = svg
+                        .append("g")
+                        .attr(
+                            "transform",
+                            "translate(" + margin.left + "," + margin.top + ")"
+                        )
+            ;
+
+            var link = g
+                        .selectAll(".link")
+                        .data([[]])
+                        .enter()
+                            .append("path")
+                            .attr("class", "link")
+                            .attr('fill','none')
+                            .attr('stroke','black')
+                            .attr("d", function(d) {
+                                return "M" + 10 + "," + 10
+                                    + "C" + 10 + "," + (10 + 200) / 2
+                                    + " " + 200 + "," + (10 + 200) / 2
+                                    + " " + 200 + "," + 200
+                                ;
+                           })
+            ;
+
+        })
+
+    </script>
+
+</body>
+</html>

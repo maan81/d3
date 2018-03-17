@@ -1,5 +1,8 @@
-[
-    {"name":"Maria","age":30},
-    {"name":"Fred","age":50},
-    {"name":"Framcos","age":12}
-]
+{
+    "name":"Max",
+    "children":[
+        {
+            "name":"Sylvia"
+        }
+    ]
+}
