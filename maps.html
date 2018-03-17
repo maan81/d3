@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>D3 Tutorial</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+</head>
+<body>
+
+    <script type="text/javascript">
+
+        var width = 900,
+            height = 700
+        ;
+
+        var canvas = d3
+                        .select('body')
+                        .append('svg')
+                        .attr('width',width)
+                        .attr('height',height)
+        ;
+
+        // https://raw.githubusercontent.com/johan/world.geo.json/master/countries/SWE.geo.json
+        d3.json('SWE.geo.json',function(data){
+            var group = canvas
+                            .selectAll('g')
+                            .data(data.features)
+                            .enter()
+                            .append('g')
+            ;
+
+            var projection = d3
+                                .geoMercator()
+                                .scale(1000)
+                                .translate([width/2,height*2.5])
+            ;
+            var path = d3
+                        .geoPath()
+                        .projection(projection)
+            ;
+
+            var area = group
+                            .append('path')
+                            .attr('d',path)
+                            .attr('class','area')
+                            .attr('fill','steelblue')
+            ;
+
+            group
+                .append('text')
+                .attr('x',function(d){
+                    return path.centroid(d)[0];
+                })
+                .attr('y',function(d){
+                    return path.centroid(d)[1];
+                })
+
+        });
+
+    </script>
+
+</body>
+</html>
