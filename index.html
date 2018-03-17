@@ -1,68 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>D3 Tutorial</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <title>D3.js</title>
 </head>
 <body>
 
-    <script type="text/javascript">
-
-        var dataArray = [5, 20, 40, 50, 60];
-        var width = 500;
-        var height = 350;
-
-        var widthScale = d3
-                            .scaleLinear()
-                            .domain([0,60])
-                            .range([0,width])
-        ;
-
-        var colorScale = d3
-                            .scaleLinear()
-                            .domain([0,60])
-                            .range(['green','red'])
-        ;
-
-        var axis = d3.axisBottom(widthScale)
-                    .ticks(5)
-        ;
-
-        var canvas = d3
-                        .select('body')
-                        .append('svg')
-                        .attr('width',width)
-                        .attr('height',height)
-                        .append('g')
-                        .attr('transform','translate(5,5)')
-        ;
-
-        canvas
-            .append('g')
-            .attr('transform','translate(0,300)')
-            .call(axis)
-        ;
-
-        var bars = canvas
-                        .selectAll('rect')
-                        .data(dataArray)
-                        .enter()
-                            .append('rect')
-                            .attr('width',function(d){
-                                return widthScale(d);
-                            })
-                            .attr('height',50)
-                            .attr('y',function(d,i){
-                                return i*60;
-                            })
-                            .attr('fill',function(d){
-                                return colorScale(d);
-                            })
-        ;
-
-
-    </script>
+<div>
+    <h2>Stages</h2>
+    <small>
+        <a href="https://www.youtube.com/playlist?list=PL6il2r9i3BqH9PmbOf5wA5E1wOG3FT22p">
+            https://www.youtube.com/playlist?list=PL6il2r9i3BqH9PmbOf5wA5E1wOG3FT22p
+        </a>
+    </small>
+    <ul>
+        <li>
+            <a href="/group_axes.html">Group and Axes</a>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>
