@@ -1,38 +1,38 @@
 {
     "name":"Max",
+    "value": 100,
     "children":[
         {
             "name":"Sylvia",
             "children":[
                 {
-                    "name":"SSS"
+                    "name": "Craig",
+                    "value": 25
                 },
                 {
-                    "name":"SSSS"
+                    "name": "Robin",
+                    "value": 25
+                },
+                {
+                    "name": "Anna",
+                    "value": 25
                 }
             ]
         },
         {
-            "name":"BB",
+            "name":"David",
             "children":[
                 {
-                    "name":"BBB"
+                    "name":"Jeff",
+                    "value":25
                 },
                 {
-                    "name":"BBBB"
-                }
-            ]
-        },
-        {
-            "name":"CC",
-            "children":[
-                {
-                    "name":"CCCC"
-                },
-                {
-                    "name":"CCCCC"
+                    "name":"Buffy",
+                    "value":25
                 }
             ]
         }
-    ]
+    ],
+    "name" : "Mr. X",
+    "value": 75
 }
