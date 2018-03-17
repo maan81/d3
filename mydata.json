@@ -4,6 +4,10 @@
     "children":[
         {
             "name":"Sylvia",
+<<<<<<< HEAD
+=======
+            "value": 75,
+>>>>>>> 19_Treemap
             "children":[
                 {
                     "name": "Craig",
@@ -21,6 +25,10 @@
         },
         {
             "name":"David",
+<<<<<<< HEAD
+=======
+            "value": 75,
+>>>>>>> 19_Treemap
             "children":[
                 {
                     "name":"Jeff",
@@ -31,8 +39,17 @@
                     "value":25
                 }
             ]
+<<<<<<< HEAD
         }
     ],
     "name" : "Mr. X",
     "value": 75
+=======
+        },
+        {
+            "name" : "Mr. X",
+            "value": 75
+        }
+    ]
+>>>>>>> 19_Treemap
 }
