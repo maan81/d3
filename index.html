@@ -1,102 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>D3 Tutorial</title>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+    <title>D3.js</title>
 </head>
 <body>
 
-    <script type="text/javascript">
-
-        // Set the dimensions and margins of the diagram
-        var margin = {top: 40, right: 90, bottom: 50, left: 90},
-            w = 660 - margin.left - margin.right,
-            h = 500 - margin.top - margin.bottom
-        ;
-
-        // append the svg object to the body of the page
-        var svg = d3
-                    .select('body')
-                    .append('svg')
-                    .attr('width', w + margin.left + margin.right)
-                    .attr('height', h + margin.top + margin.bottom)
-        ;
-
-        // appends a 'group' element to 'svg'
-        // moves the 'group' element to the top left margin
-        var g = svg
-                    .append('g')
-                    .attr('transform','translate('+margin.left+','+margin.top+')')
-        ;
-
-        // declares a tree layout and assigns the size
-        var tree = d3
-                    .tree()
-                    .size([w, h])
-        ;
-
-        d3.json('mydata.json',function(data){
-            // Assigns parent
-            var nodes = d3.hierarchy(data);
-
-             // Assigns the x and y position for the nodes
-            nodes = tree(nodes);
-
-            // adds the links between the nodes
-            var link = g
-                .selectAll(".link")
-                .data(nodes.descendants().slice(1))
-                .enter()
-                    .append("path")
-                    .attr("class", "link")
-                    .attr("d", (d) => {
-                        // return "M" + d.x + "," + d.y
-                        //   + "C" + d.x + "," + (d.y + d.parent.y) / 2
-                        //   + " " + d.parent.x + "," +  (d.y + d.parent.y) / 2
-                        //   + " " + d.parent.x + "," + d.parent.y;
-            
-                        return "M" + d.y + "," + d.x
-                            + "C" + d.y + "," + (d.x + d.parent.x) / 2
-                            + " " + d.parent.y + "," +  (d.x + d.parent.x) / 2
-                            + " " + d.parent.y + "," + d.parent.x;
-                    })
-                    .attr('fill', 'none')
-                    .attr('stroke', '#ccc')
-                    .attr('stroke-width', 2)
-                ;
-
-            // adds each node as a group
-            var node = g
-                        .selectAll('.node')
-                        .data(nodes.descendants())
-                        .enter()
-                            .append('g')
-                            .attr('class', (d) => {
-                                return "node" +
-                                    (d.children ? " node--internal" : " node--leaf");
-                            })
-                            .attr("transform", (d) => "translate("+d.y+","+d.x+")")
-            ;
-
-            // adds the circle to the node
-            node
-                .append('circle')
-                .attr('r', 10)
-                .attr('fill', 'steelblue')
-            ;
-
-            // adds the text to the node
-            node
-                .append("text")
-                .attr("dx", 3)
-                .attr("x", (d) => d.children ? -20 : 20 )
-                .style("text-anchor", (d) =>  d.children ? "end" : "start" )
-                .text((d) => d.data.name )
-            ;
-        });
-
-    </script>
+<div>
+    <h2>Stages</h2>
+    <small>
+        <a href="https://www.youtube.com/playlist?list=PL6il2r9i3BqH9PmbOf5wA5E1wOG3FT22p">
+            https://www.youtube.com/playlist?list=PL6il2r9i3BqH9PmbOf5wA5E1wOG3FT22p
+        </a>
+    </small>
+    <ul>
+        <li>
+            <a href="/tree_layout2.html">Tree Layout 2</a>
+        </li>
+    </ul>
+</div>
 
 </body>
 </html>
