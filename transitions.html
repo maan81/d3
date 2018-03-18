@@ -25,36 +25,46 @@
                         .attr('r',25)
         ;
 
+        var cx = 50;
+        function move_cx(){
+            cx = cx==200?50:200;
+            return cx;
+        };
+
+        var color = 'red';
+        function change_color(){
+            color = color=='red'?'green':'red';
+            return color;
+        };
+
+        var duration = 500;
+
+        var delay = 2000;
+
         circle_transition
-            .attr('fill','green')
+            .attr('fill',change_color())
 
             .transition()
-            .duration(2000)
-            .attr('cx',200)
-            .attr('fill','red')
+            .delay(delay)
+            .duration(duration)
 
-            .transition()
-            .delay(2000)
-            .duration(2000)
-            .attr('cx',50)
-            .attr('fill','green')
-
-            .on('end',function(){
+            .on('start',function repeat(){
 
                 d3
-                    .select(this)
+                    .active(this)
+                    .attr("cx", move_cx())
+                    .attr('fill',change_color())
 
                     .transition()
-                    .delay(2000)
-                    .duration(2000)
-                    .attr('cx',200)
-                    .attr('fill','red')
+                    .delay(delay)
+
+                    .attr("cx", move_cx())
+                    .attr('fill',change_color())
 
                     .transition()
-                    .delay(2000)
-                    .duration(2000)
-                    .attr('cx',50)
-                    .attr('fill','green')
+                    .delay(delay)
+
+                    .on("start", repeat)
                 ;
             })
         ;
